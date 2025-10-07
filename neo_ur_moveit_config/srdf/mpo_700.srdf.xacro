@@ -164,6 +164,11 @@
         <xacro:include filename="$(find neo_ur_moveit_config)/srdf/robotiq_epick.xacro" />
         <xacro:robotiq_epick />
       </xacro:if>
+
+      <xacro:if value="${gripper == 'vg10'}">
+        <xacro:include filename="$(find neo_ur_moveit_config)/srdf/vg10.srdf.xacro" />
+        <xacro:vg10 />
+      </xacro:if>
     </xacro:unless>
 
 </robot>

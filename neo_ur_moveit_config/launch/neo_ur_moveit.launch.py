@@ -230,7 +230,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             'gripper_type', default_value='',
-            choices=['', '2f_140', '2f_85', 'epick'],
+            choices=['', '2f_140', '2f_85', 'epick', 'vg10'],
             description='Gripper Types - Supported Robots [mpo-700, mpo-500]\n\t'
         )
     )
