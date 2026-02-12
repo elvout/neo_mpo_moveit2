@@ -48,6 +48,14 @@
       <joint name="${prefix_value}wrist_2_joint" value="${-pi/2}" />
       <joint name="${prefix_value}wrist_3_joint" value="0" />
     </group_state>
+    <group_state name="forward" group="ur_manipulator">
+      <joint name="${prefix_value}shoulder_pan_joint" value="-1.2202613989459437" />
+      <joint name="${prefix_value}shoulder_lift_joint" value="-1.5495208718678732" />
+      <joint name="${prefix_value}elbow_joint" value="-2.1362695693969727" />
+      <joint name="${prefix_value}wrist_1_joint" value="-2.5972725353636683" />
+      <joint name="${prefix_value}wrist_2_joint" value="-1.2178118864642542" />
+      <joint name="${prefix_value}wrist_3_joint" value="0" />
+    </group_state>
 
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="base_footprint" link2="cabinet_link" reason="Adjacent"/>
