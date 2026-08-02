@@ -49,6 +49,7 @@ def launch_setup(context, *args, **kwargs):
     robot_typ = str(context.perform_substitution(LaunchConfiguration("robot_type")))
     arm_type = LaunchConfiguration("arm_type")
     ur_dc = LaunchConfiguration("use_ur_dc")
+    ur_calibration_file = LaunchConfiguration("ur_calibration_file")
     gripper_type = LaunchConfiguration("gripper_type")
 
     # General arguments
@@ -137,6 +138,7 @@ def launch_setup(context, *args, **kwargs):
             "use_gz": use_gz,
             "arm_type": arm_type,
             "use_ur_dc": ur_dc,
+            "ur_calibration_file": ur_calibration_file,
             "gripper_type": gripper_type,
             "force_abs_paths": use_gz,
             "use_mock_hardware": use_mock,
@@ -217,6 +219,21 @@ def generate_launch_description():
             'arm_type', default_value='',
             choices=['', 'ur5', 'ur10', 'ur5e', 'ur10e', 'ec66', 'cs66'],
             description='Arm Types - Supported Robots [mpo-700, mpo-500]\n\t'        
+        )
+    )
+
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "ur_calibration_file",
+            default_value=PathJoinSubstitution(
+                [
+                    FindPackageShare("ur_description"),
+                    "config",
+                    LaunchConfiguration("arm_type"),
+                    "default_kinematics.yaml",
+                ]
+            ),
+            description="UR calibration configuration file.",
         )
     )
 
